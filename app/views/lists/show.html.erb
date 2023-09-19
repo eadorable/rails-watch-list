@@ -1,0 +1,16 @@
+<h1><%= @list.name %></h1>
+
+<p><%= @list.bookmarks.count %> <%= @list.bookmarks.count > 1 ? "movies" : "movie" %></p>
+<% @list.bookmarks.each do |bookmark| %>
+  <ul>
+    <li>
+      <%= bookmark.movie.title %>
+    </li>
+    <img src="<%= bookmark.movie.poster_url %>" alt="<% bookmark.movie.title %> picture">
+    <p><%= bookmark.comment %></p>
+    <p><%= link_to "Add a movie" ,  new_list_bookmark_path(bookmark.list_id) %></p>
+    <%= link_to "Delete",bookmark_path(bookmark.id),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </ul>
+
+<% end %>
+<p><%= link_to "Back To List", lists_path %></p>
