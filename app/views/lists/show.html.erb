@@ -15,10 +15,10 @@
 
         </div>
 
-        <p><%= link_to "Add a movie" ,  new_list_bookmark_path(bookmark.list_id) %></p>
+
         <% end %>
 
-
+        <p><%= link_to "Add a movie" ,  new_list_bookmark_path(@list.id) %></p>
         <p><%= link_to "Back To List", root_path %></p>
       </div>
     </div>
