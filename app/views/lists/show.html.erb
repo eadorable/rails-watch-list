@@ -11,7 +11,7 @@
         </div>
         <div class="card-footer">
           <small class="text-muted">"<%= bookmark.comment %>"</small>
-          <button class="btn btn-secondary"><%= link_to "",bookmark_path(bookmark.id),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>Delete</button>
+          <button class="btn btn-secondary"><%= link_to "Delete",bookmark_path(bookmark.id),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
 
         </div>
 
