@@ -1,26 +1,28 @@
-<h1><%= @list.name %></h1>
+
 <div class="container">
+  <h1><%= @list.name %></h1>
+  <p><i class="fa-solid fa-plus"></i><%= link_to "Add a movie", new_list_bookmark_path(@list.id) %></p>
+  <p><i class="fa-solid fa-backward"></i><%= link_to "Back To List", root_path %></p>
   <div class="row">
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-        <% @list.bookmarks.each do |bookmark| %>
-        <img class="card-img-top" src="<%= bookmark.movie.poster_url %>" alt="<% bookmark.movie.title %> picture">
-        <div class="card-body">
-          <h5 class="card-title"><%= bookmark.movie.title %> <%= bookmark.movie.rating %>&#11088;</h5>
-          <p class="card-text"><%= bookmark.movie.overview %></p>
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= bookmark.movie.title %> <%= bookmark.movie.rating %>&#11088;</h5>
+            <p class="card-text"><%= bookmark.movie.overview %></p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">"<%= bookmark.comment %>"</small>
+            <button btn><%= link_to "Delete", bookmark_path(bookmark.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></button>
+          </div>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">"<%= bookmark.comment %>"</small>
-          <button class="btn btn-secondary"><%= link_to "Delete",bookmark_path(bookmark.id),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></button>
-
-        </div>
-
-        <p><%= link_to "Add a movie" ,  new_list_bookmark_path(bookmark.list_id) %></p>
-        <% end %>
-
-
-        <p><%= link_to "Back To List", root_path %></p>
       </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
     </div>
   </div>
 </div>
