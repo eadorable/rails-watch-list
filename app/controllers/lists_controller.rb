@@ -16,15 +16,21 @@ class ListsController < ApplicationController
     # @list = List.find(params[:id])
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(@list.id)
+      redirect_to list_path(@list.id) # list show
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to root_path
+  end
+
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end

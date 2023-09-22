@@ -1,11 +1,17 @@
-<h1>My Lists</h1>
+<div class="container">
+  <h1>My Lists</h1>
+  <p class=""><i class="fa-solid fa-plus"></i><%= link_to "Add a movie list", new_list_path %></p>
 
-<% @lists.each do |list| %>
-<ul>
-  <li>
-    <%= link_to list.name, list_path(list.id) %>
-  </li>
-</ul>
-<% end %>
-
-<p><%= link_to "Create a movie list", new_list_path %></p>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-md-4">
+        <p><%= link_to list.name, list_path(list.id) %></p>
+        <!-- Will only run if there's an attached photo -->
+        <% if list.photo.present? %>
+          <%= cl_image_tag list.photo.key, width: 200, crop: :fill %>
+        <% end %>
+        <p><i class="fa-solid fa-minus"></i></i><%= link_to "Delete", list_path(list.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
