@@ -3,7 +3,8 @@
   <h1>Create New List</h1>
 
   <%= simple_form_for(@list) do |f| %>
-    <%= f.input :name %>
+    <% watchlist_names = %w[Action Comedy Drama Sci-Fi Horror Romance Documentary] %>
+    <%= f.input :name, collection: watchlist_names %>
     <%= f.input :photo, as: :file %>
     <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>

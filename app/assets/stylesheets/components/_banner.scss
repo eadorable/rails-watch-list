@@ -1,0 +1,31 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  padding: 10px;
+  text-align: center;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), asset-url('banner.jpg');
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+
+}
+
+.banner h1 {
+  color: white;
+  font-size: 50px;
+  font-weight: 700;
+
+}
+
+.banner a {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}

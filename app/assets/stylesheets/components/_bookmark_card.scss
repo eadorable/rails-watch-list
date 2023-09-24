@@ -1,0 +1,30 @@
+.bookmark-card{
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .comment-p{
+    text-align: center;
+
+  }
+
+  .delete-link{
+    text-align: right;
+  }
+
+  .delete-link a{
+    color: red;
+  }
+
+  .card-overview{
+    padding: 10px;
+    text-align: justify;
+  }
+}
