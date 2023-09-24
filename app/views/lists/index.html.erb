@@ -1,7 +1,10 @@
 
 <div class="banner">
   <h1>My Watchlist</h1>
-  <p><%= link_to "Add watchlist", new_list_path %></p>
+  <p><%= link_to "Add a List", new_list_path %></p>
+
+
+
 </div>
 
 <div class="container">
@@ -10,6 +13,7 @@
   <% @lists.each do |list| %>
     <div class="cards">
       <h3><%= link_to list.name, list_path(list.id) %></h3>
+      <p><%= link_to "Delete", list_path(list.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
     </div>
   <% end %>
 
